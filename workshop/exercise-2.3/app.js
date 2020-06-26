@@ -4,24 +4,25 @@ const container = document.querySelector("#main");
 const number = 20;
 
 // boolean
-let clicked = false;
+// let clicked = false;
 
 function clickButton(event) {
-  if (clicked === false) {
+  if (event.target.style.backgroundColor === "rgb(240, 188, 66)") {
     event.target.style.backgroundColor = "rgb(134,38,51)";
-    clicked = true;
+    button.removeEventListener("click", onClick);
+    // clicked = true;
   } else {
     event.target.style.backgroundColor = "rgb(240, 188, 66)";
-    clicked = false;
+    button.removeEventListener("click", onClick);
   }
   return clicked;
 }
-//remove event listener
-function removeAllEventListeners() {
-  buttonfolder.forEach(function (button) {
-    button.removeEventListener("mousdown", onClick);
-  });
-}
+// //remove event listener
+// function removeAllEventListeners() {
+//   buttonfolder.forEach(function (button) {
+//     button.removeEventListener("click", onClick);
+//   });
+// }
 
 // boucle
 for (i = 1; i <= number; i++) {
@@ -36,6 +37,6 @@ for (i = 1; i <= number; i++) {
   button.style.top = randomN1 + "px";
   button.style.left = randomN2 + "px";
   button.style.backgroundColor = "rgb(240, 188, 66)";
-  button.addEventListener("mousedown", clickButton);
+  button.addEventListener("click", clickButton);
   container.appendChild(button);
 }
